@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Agendamentos</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item *ngFor="let agendamento of agendamentos" [class.falha]="!agendamento.enviado">
+      {{agendamento.nomeCliente}} - {{agendamento.modeloCarro}}
+
+      <button ion-button item-end icon-only clear
+      (click)="reenvia(agendamento)"
+      *ngIf="!agendamento.enviado">
+        <ion-icon name="refresh"></ion-icon>
+      </button>
+
+    </ion-item>
+  </ion-list>
+</ion-content>
